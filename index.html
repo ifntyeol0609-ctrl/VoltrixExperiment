@@ -2800,7 +2800,7 @@ window.finishExperiment = function() {
     // --- 【修复 3】：【新增】提升所有 demographics 数据为顶级列 (已更新) ---
     if (gameState.demographics) {
         experimentData.set('gender', gameState.demographics.gender);
-        experimentData.set('age', gameState.demographics.age); // (新)
+        experimentData.set('age', parseInt(gameState.demographics.age, 10)); // (新)
         experimentData.set('education', gameState.demographics.education);
         experimentData.set('className', gameState.demographics.className); // (新)
         experimentData.set('smartDriving', gameState.demographics.smartDriving);
