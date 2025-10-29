@@ -917,7 +917,7 @@ window.gameState = {
                     
                     <ol style="margin-left: 20px; color: #666;">
                         <li style="margin: 10px 0;">本次调研由湖北经济学院创新创业课程组组织开展，旨在配合本课程的实验教学。 </li>
-                        <li style="margin: 10px 0;">本次调研以支持课程教学为目的，<strong>不会另作他用，也不涉及任何跟个人相关的打分</strong>。您所提供的所有信息将<strong>严格保密</strong>，您提供的选择也不会有对错之分，您可以自由地表达您的真实想法。完成本次调研约需30分钟，请确认您是<strong>自愿参与</strong>本次调研。</li>
+                        <li style="margin: 10px 0;">本次调研以支持课程教学为目的，<strong>不会另作他用，也不涉及任何跟个人相关的打分</strong>。您所提供的所有信息将<strong>严格保密</strong>，您提供的选择也不会有对错之分，您可以自由地表达您的真实想法。</li>
                         <li style="margin: 10px 0;">您的认真参与和积极支持是本次调研成功的关键所在，请您务必认真阅读题目，按照您的真实想法作答。</li>
                     </ol>
                     
@@ -1528,7 +1528,7 @@ window.gameState = {
                         <p>接下来，我们需要收集一些基本信息。</p>
                         <p style="font-weight: bold; margin-top: 20px;">
                             请根据您的实际情况如实填写。<br>
-                            所有信息仅用于学术研究，我们将严格保密。
+                            所有信息仅用于课程调研，我们将严格保密。
                         </p>
                     </div>
                 </div>
@@ -1596,7 +1596,7 @@ window.gameState = {
     </div>
 
     <div class="form-group" style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee;">
-        <label>最后请确认：您是否理解了本实验中的所有阅读材料、题目以及选项？</label>
+        <label>最后请确认：您是否理解了本次实验调研中的所有阅读材料、题目以及选项？</label>
         <div class="likert-scale">
             <label class="likert-option"><input type="radio" name="understanding" value="1" class="likert-radio"><span class="likert-label">1<br>完全不理解</span></label>
             <label class="likert-option"><input type="radio" name="understanding" value="2" class="likert-radio"><span class="likert-label">2</span></label>
@@ -1722,7 +1722,7 @@ const managementScenarios = (function() {
         { id: 'R3', text: '您在提交一笔出差报销，出差总花费中约有70%属于可以报销的合规花费。您可以夹带提交一些私人开销的发票用于报销，但这将会违反公司规定', prompt: '您会提交比例为多少的报销申请？', labels: ['70%', '75%', '80%', '85%', '90%', '95%', '100%'] },
         { id: 'R4', text: '在组建由您领导的攻坚团队时，部门投票选出了一位与您有私人矛盾、但技术和能力都完美契合团队需求的同事加入团队。您可以选择不邀请该同事加入团队，但这将违反公司规定。', prompt: '您不邀请该同事加入团队的可能性是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] },
         { id: 'R5', text: '昨晚您因私人聚会睡得很晚。您可以选择第二天“请病假”居家办公，但这将违背公司规定。', prompt: '您选择居家办公的可能性是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] },
-        { id: 'R6', text: '今天是本月的最后一天，您需要在今日下班前提交一份完整的个人月度工作报告，但您还没有开始撰写。您可以选择让下属代为撰写一部分，但这将违反公司规定。', prompt: '您会将个人月报交给下属代为撰写的比例是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] }
+        { id: 'R6', text: '今天是本月的最后一天，您需要在今日下班前提交一份完整的个人月度工作报告，但您还没有开始撰写。您可以选择让下属代为撰写一部分，但这将违反公司规定。', prompt: '您会将多大部分的个人月报交给下属撰写？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] }
     ];
 
     const newReciprocalScenarios = [
