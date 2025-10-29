@@ -1106,19 +1106,19 @@ window.gameState = {
                     <p><strong>问题3：从各职级的任职年限要求来看，入职4年的工程师可能处于哪些职级？（多选）</strong></p>
                     <div class="checkbox-group">
                         <label class="checkbox-option">
-                            <input type="checkbox" name="test3" value="L1"> L1
+                            <input type="checkbox" name="test3" value="L1"> L1 初级工程师
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="test3" value="L2"> L2
+                            <input type="checkbox" name="test3" value="L2"> L2 中级工程师
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="test3" value="L3"> L3
+                            <input type="checkbox" name="test3" value="L3"> L3 高级工程师
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="test3" value="L4"> L4
+                            <input type="checkbox" name="test3" value="L4"> L4 专家工程师
                         </label>
                         <label class="checkbox-option">
-                            <input type="checkbox" name="test3" value="L5"> L5
+                            <input type="checkbox" name="test3" value="L5"> L5 资深专家工程师
                         </label>
                     </div>
                     <div id="test3-error" class="error-hint"></div>
@@ -1554,14 +1554,7 @@ window.gameState = {
 
     <div class="form-group">
         <label>年龄：</label>
-        <select id="age-select">
-            <option value="">请选择您的年龄段...</option>
-            <option value="18-25">18-25岁</option>
-            <option value="26-35">26-35岁</option>
-            <option value="36-45">36-45岁</option>
-            <option value="46-55">46-55岁</option>
-            <option value="56+">56岁及以上</option>
-        </select>
+        <input type="number" id="age-input" placeholder="请填写您的年龄：">
     </div>
 
     <div class="form-group">
@@ -1576,14 +1569,8 @@ window.gameState = {
     </div>
 
     <div class="form-group">
-        <label>在当前组织的工作年限：</label>
-        <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="experience" value="<1"> 1年以下</label>
-            <label class="radio-option"><input type="radio" name="experience" value="1-3"> 1-3年</label>
-            <label class="radio-option"><input type="radio" name="experience" value="4-6"> 4-6年</label>
-            <label class="radio-option"><input type="radio" name="experience" value="7-10"> 7-10年</label>
-            <label class="radio-option"><input type="radio" name="experience" value="10+"> 10年以上</label>
-        </div>
+        <label>请填写您的班级名称：</label>
+        <input type="text" id="class-name-input" placeholder="例如：人力2101">
     </div>
     
     <div class="form-group">
@@ -1624,7 +1611,6 @@ window.gameState = {
     
     <button onclick="finishExperiment()">提交并完成</button>
 </div>
-
 
             <div class="section" id="complete">
                 <h2>正在提交数据...</h2>
@@ -1735,9 +1721,9 @@ const managementScenarios = (function() {
         { id: 'R1', text: '您负责的核心算法项目进度落后，模型准确率目标为100%，目前仅70%。您可以选择虚报，但这将会违背公司的规定。', prompt: '在向上级汇报时，您会将当前模型的准确率写为多少？', labels: ['70%', '75%', '80%', '85%', '90%', '95%', '100%'] },
         { id: 'R2', text: '本周您实际有效工作时长约为公司规定时长的70%。您可以虚报工时，以显得自己更努力，但虚报将违反公司制度。', prompt: '本周工时统计时，您会选择填报公司规定时长的百分之多少？', labels: ['70%', '75%', '80%', '85%', '90%', '95%', '100%及以上'] },
         { id: 'R3', text: '您在提交一笔出差报销，出差总花费中约有70%属于可以报销的合规花费。您可以夹带提交一些私人开销的发票用于报销，但这将会违反公司规定', prompt: '您会提交比例为多少的报销申请？', labels: ['70%', '75%', '80%', '85%', '90%', '95%', '100%'] },
-        { id: 'R4', text: '在组建由您领导的攻坚团队时，部门投票选出了一位与您有私人矛盾、但技术和能力都完美契合团队需求的同事加入团队。您可以选择不邀请该同事加入团队，但这将违反公司规定。', prompt: '您邀请该同事加入团队的可能性是多少？', labels: ['100%', '80%', '65%', '50%', '40%', '30%', '20%及以下'] },
+        { id: 'R4', text: '在组建由您领导的攻坚团队时，部门投票选出了一位与您有私人矛盾、但技术和能力都完美契合团队需求的同事加入团队。您可以选择不邀请该同事加入团队，但这将违反公司规定。', prompt: '您不邀请该同事加入团队的可能性是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] },
         { id: 'R5', text: '昨晚您因私人聚会睡得很晚。您可以选择第二天“请病假”居家办公，但这将违背公司规定。', prompt: '您选择居家办公的可能性是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] },
-        { id: 'R6', text: '根据上级要求，您负责的项目策划书须在今日下班前完整提交，但您今晚因私事打算提前下班。您可以草草完成先交差，但这将违反公司规定。', prompt: '今天下班时，这份策划书您会完成到什么程度？', labels: ['100%', '80%', '65%', '50%', '40%', '30%', '20%及以下'] }
+        { id: 'R6', text: '今天是本月的最后一天，您需要在今日下班前提交一份完整的个人月度工作报告，但您还没有开始撰写。您可以选择让下属代为撰写一部分，但这将违反公司规定。', prompt: '您会将个人月报交给下属代为撰写的比例是多少？', labels: ['20%及以下', '30%', '40%', '50%', '65%', '80%', '100%'] }
     ];
 
     const newReciprocalScenarios = [
@@ -2739,43 +2725,46 @@ window.toggleDrivingYears = function() { /* ... demographics logic ... */ };
 
 
 window.finishExperiment = function() {
-    const errorHint = document.getElementById('demographics-error'); // 使用合并后的错误提示框
-    errorHint.textContent = ''; // 清空错误提示
+    const errorHint = document.getElementById('demographics-error'); 
+    errorHint.textContent = ''; 
 
-    // 1. 获取人口统计数据
+    // 1. 获取人口统计数据 (已按新要求修改)
     const demographicsData = {
         gender: document.querySelector('input[name="gender"]:checked')?.value,
-        age: document.getElementById('age-select')?.value,
+        age: document.getElementById('age-input')?.value, // 1. 改为读取 age-input
         education: document.querySelector('input[name="education"]:checked')?.value,
-        experience: document.querySelector('input[name="experience"]:checked')?.value,
+        className: document.getElementById('class-name-input')?.value, // 2. 新增读取 className
         smartDriving: document.querySelector('input[name="smart-driving"]:checked')?.value,
         algorithmExp: document.querySelector('input[name="algorithm-exp"]:checked')?.value,
     };
+    // 3. 'experience' 已被 'className' 替代
 
-// --- 添加这行代码 ---
-const understanding = document.querySelector('input[name="understanding"]:checked')?.value;
+    const understanding = document.querySelector('input[name="understanding"]:checked')?.value;
    
     // 3. 验证所有数据
     let allValid = true;
     for (const key in demographicsData) {
-        if (!demographicsData[key]) {
+        if (!demographicsData[key]) { // 检查空字符串、null或undefined
             allValid = false;
             break;
         }
     }
+    
+    // 额外验证年龄
+    if (demographicsData.age && parseInt(demographicsData.age) <= 0) {
+         allValid = false;
+    }
+    
     if (!allValid || !understanding) {
-        errorHint.textContent = '您还有未完成的题目，请检查并补充完整。';
+        errorHint.textContent = '您还有未完成的题目（或年龄、班级填写不正确），请检查并补充完整。';
         return;
     }
 
     // 4. 保存所有数据
-    gameState.demographics = demographicsData; // 保存人口统计数据
-
+    gameState.demographics = demographicsData; 
     gameState.personalityData = {
-    // riskPreference 和 honesty 已被删除
-    // entitlement 已在 surveyData 中保存
-    understanding: parseInt(understanding)
-};
+        understanding: parseInt(understanding)
+    };
 
     gameState.endTime = new Date();
     gameState.participantId = 'P' + Date.now() + Math.random().toString(36).substr(2, 5).toUpperCase();
@@ -2789,7 +2778,9 @@ const understanding = document.querySelector('input[name="understanding"]:checke
     experimentData.set('participantId', gameState.participantId);
     experimentData.set('startTime', gameState.startTime);
     experimentData.set('endTime', gameState.endTime);
-    experimentData.set('durationMinutes', ((gameState.endTime - gameState.startTime) / 60000).toFixed(2));
+    
+    // --- 【修复 1】：修复 duration 列名 (来自上一轮) ---
+    experimentData.set('duration', ((gameState.endTime - gameState.startTime) / 60000).toFixed(2));
 
     experimentData.set('yearTaskCorrectCount', gameState.yearTaskAnswers.filter(a => a && a.correct).length);
     experimentData.set('mainTaskCorrectCount', gameState.correctAnswers);
@@ -2800,11 +2791,28 @@ const understanding = document.querySelector('input[name="understanding"]:checke
     experimentData.set('promotionReasonPerceived', gameState.promotionReason || 'N/A');
     experimentData.set('promotionReasonActual', gameState.mysteryReason || 'N/A');
 
+    // --- 【修复 2】：设置嵌套对象（保持数据完整性）---
     experimentData.set('surveyData', gameState.surveyData || {});
     experimentData.set('behaviorData', gameState.behaviorData || {});
-    experimentData.set('postScenarioSurveyData', gameState.postScenarioSurveyData || {}); // 确保此行存在
+    experimentData.set('postScenarioSurveyData', gameState.postScenarioSurveyData || {});
     experimentData.set('demographics', gameState.demographics || {});
     experimentData.set('personalityData', gameState.personalityData || {});
+
+    // --- 【修复 3】：【新增】提升所有 demographics 数据为顶级列 (已更新) ---
+    if (gameState.demographics) {
+        experimentData.set('gender', gameState.demographics.gender);
+        experimentData.set('age', gameState.demographics.age); // (新)
+        experimentData.set('education', gameState.demographics.education);
+        experimentData.set('className', gameState.demographics.className); // (新)
+        experimentData.set('smartDriving', gameState.demographics.smartDriving);
+        experimentData.set('algorithmExp', gameState.demographics.algorithmExp);
+    }
+    
+    // --- 【修复 4】：【新增】提升 entitlementScores 为顶级列 (来自上一轮) ---
+    if (gameState.surveyData && gameState.surveyData.entitlement) {
+        // 使用您截图中的列名 'entitlementScores'
+        experimentData.set('entitlementScores', gameState.surveyData.entitlement);
+    }
 
     experimentData.save().then(
         (result) => {
